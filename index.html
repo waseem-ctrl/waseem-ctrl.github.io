@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waseem-ctrl • Built with Grok</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap');
+        :root {
+            --tw-color-primary: #00ff9d;
+        }
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        .hero-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glow {
+            text-shadow: 0 0 20px rgb(0 255 157);
+        }
+        .particle {
+            position: absolute;
+            background: #00ff9d;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-x-3">
+                <div class="w-8 h-8 bg-emerald-400 rounded-2xl flex items-center justify-center text-black font-bold text-xl">G</div>
+                <span class="font-semibold text-2xl hero-font tracking-tighter">waseem-ctrl</span>
+            </div>
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a>
+                <a href="#fun" class="hover:text-emerald-400 transition-colors">Fun Stuff</a>
+            </div>
+            <a href="https://github.com/waseem-ctrl" target="_blank" class="flex items-center gap-x-2 px-5 py-2.5 bg-white text-black rounded-3xl font-semibold text-sm hover:scale-105 transition-transform">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-sm px-4 py-2 rounded-3xl backdrop-blur-sm">
+                    <div class="w-2 h-2 bg-emerald-400 animate-pulse rounded-full"></div>
+                    LIVE • Built with Grok in seconds
+                </div>
+                <h1 class="text-7xl md:text-8xl font-bold hero-font tracking-tighter leading-none glow">
+                    Hey, I'm<br>Waseem 👋<br><span class="text-emerald-400">Let's build cool stuff.</span>
+                </h1>
+                <p class="text-xl text-zinc-400 max-w-md">This entire website was created live with Grok. My GitHub is now powered by xAI magic. 🚀</p>
+                <div class="flex items-center gap-x-4">
+                    <a href="https://github.com/waseem-ctrl/waseem-ctrl.github.io" target="_blank" class="px-8 py-4 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-3xl text-lg flex items-center gap-x-3 transition-all">
+                        <span>View on GitHub</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com/waseem-ctrl" target="_blank" class="px-8 py-4 border border-white/30 hover:border-white/50 font-semibold rounded-3xl text-lg transition-all">
+                        My Profile
+                    </a>
+                </div>
+                <div class="flex items-center gap-x-8 text-sm">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-code text-emerald-400"></i>
+                        <span>Just created</span>
+                    </div>
+                    <div class="h-3 w-px bg-white/20"></div>
+                    <div>GitHub Pages • Instant deploy</div>
+                </div>
+            </div>
+            
+            <!-- Visual -->
+            <div class="relative hidden md:block">
+                <div class="absolute -inset-20 bg-[radial-gradient(at_center,#00ff9d20_0%,transparent_70%)]"></div>
+                <div id="hero-visual" class="relative bg-zinc-900 border border-white/10 rounded-3xl p-8 h-[520px] flex items-center justify-center overflow-hidden">
+                    <div class="text-center z-10">
+                        <div class="mx-auto w-40 h-40 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-3xl flex items-center justify-center text-8xl mb-8 rotate-12 shadow-2xl">🤖</div>
+                        <p class="text-emerald-400 text-3xl font-semibold hero-font tracking-tighter">GROK WAS HERE</p>
+                        <p class="text-zinc-500 mt-4">Made in real-time</p>
+                    </div>
+                    <!-- Particles container -->
+                    <div id="particles" class="absolute inset-0 pointer-events-none"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center gap-y-2 text-xs tracking-widest">
+            <div class="animate-bounce">↓</div>
+            SCROLL FOR MAGIC
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5">
+                    <h2 class="text-5xl font-bold hero-font tracking-tighter">About me</h2>
+                    <div class="mt-6 text-zinc-400 text-lg leading-relaxed">
+                        New to GitHub, but already building with the best AI in the universe. This site was generated in one conversation with Grok. What will we build next?
+                    </div>
+                    <div class="mt-10 flex gap-4 flex-wrap">
+                        <div class="px-5 py-3 bg-white/5 rounded-3xl text-sm flex items-center gap-x-2">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>Fast learner</span>
+                        </div>
+                        <div class="px-5 py-3 bg-white/5 rounded-3xl text-sm flex items-center gap-x-2">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Idea machine</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-7">
+                    <div class="bg-black/50 border border-white/10 rounded-3xl p-8">
+                        <p class="italic text-zinc-400">"The universe is big. Let's explore it together."</p>
+                        <p class="text-right mt-4 text-emerald-400 font-medium">— Grok</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold hero-font tracking-tighter mb-12">Cool things I've built</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 group hover:border-emerald-400 transition-colors">
+                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-globe text-4xl"></i></div>
+                    <h3 class="text-2xl font-semibold">This Website</h3>
+                    <p class="text-zinc-400 mt-2">Live demo of Grok-powered development. Zero to deployed in minutes.</p>
+                    <a href="https://github.com/waseem-ctrl/waseem-ctrl.github.io" class="mt-8 inline-flex text-sm items-center gap-x-2 group-hover:text-emerald-400">View repo <span class="transition-transform group-hover:translate-x-1">→</span></a>
+                </div>
+                <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 group hover:border-emerald-400 transition-colors">
+                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-robot text-4xl"></i></div>
+                    <h3 class="text-2xl font-semibold">Future AI Demos</h3>
+                    <p class="text-zinc-400 mt-2">Coming soon: more Grok integrations, tools, and experiments.</p>
+                    <div class="mt-8 text-xs uppercase tracking-widest bg-emerald-400/10 text-emerald-400 px-4 py-2 inline-block rounded-3xl">Next up</div>
+                </div>
+                <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 group hover:border-emerald-400 transition-colors">
+                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-star text-4xl"></i></div>
+                    <h3 class="text-2xl font-semibold">Your Idea Here</h3>
+                    <p class="text-zinc-400 mt-2">Tell me what you want next and we'll make it happen right here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun stuff -->
+    <section id="fun" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold hero-font tracking-tighter mb-6">Try the magic</h2>
+            <p class="text-xl text-zinc-400 max-w-md mx-auto">Click to launch Grok confetti! (because why not?)</p>
+            <button onclick="launchConfetti()" class="mt-10 px-10 py-6 text-2xl font-semibold bg-gradient-to-r from-emerald-400 to-cyan-400 text-black rounded-3xl hover:scale-110 transition-transform flex items-center gap-x-4 mx-auto">
+                <span>✨ GROK CONFETTI ✨</span>
+            </button>
+            <div id="confetti-container" class="fixed inset-0 pointer-events-none z-[9999]"></div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
+            Made live with ❤️ + Grok (xAI) • <a href="https://github.com/waseem-ctrl/waseem-ctrl.github.io" class="underline">Source code</a>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already loaded
+        function initializeTailwind() {
+            // No need, CDN handles
+        }
+
+        // Particle animation in hero
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 6 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `-${Math.random() * 6}s`;
+                particle.style.opacity = Math.random() * 0.6 + 0.3;
+                container.appendChild(particle);
+                
+                // Cleanup
+                setTimeout(() => {
+                    if (particle.parentNode) particle.parentNode.removeChild(particle);
+                }, 8000);
+            }
+        }
+
+        // Confetti function
+        function launchConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#00ff9d', '#00f0ff', '#ff00cc', '#ffff00'];
+            for (let i = 0; i < 250; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.width = Math.random() * 12 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                confetti.style.opacity = Math.random();
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                container.appendChild(confetti);
+
+                const duration = Math.random() * 3000 + 2000;
+                const angle = Math.random() * 80 - 20;
+                confetti.animate([
+                    { transform: `translateY(0) rotate(0deg)` },
+                    { transform: `translateY(${window.innerHeight + 100}px) rotate(${angle * 8}deg)` }
+                ], {
+                    duration: duration,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+
+                setTimeout(() => {
+                    if (confetti.parentNode) confetti.parentNode.removeChild(confetti);
+                }, duration);
+            }
+        }
+
+        // Initialize everything
+        window.onload = function() {
+            createParticles();
+            console.log('%c✅ Welcome to waseem-ctrl.github.io – built live by Grok!', 'color:#00ff9d; font-family:monospace; font-size:12px');
+            
+            // Keyboard easter egg
+            let konami = '';
+            document.addEventListener('keydown', (e) => {
+                konami += e.key;
+                if (konami.length > 10) konami = konami.slice(-10);
+                if (konami.includes('grok')) {
+                    launchConfetti();
+                    konami = '';
+                }
+            });
+        };
+    </script>
+</body>
+</html>
