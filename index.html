@@ -20,16 +20,17 @@
         .glow {
             text-shadow: 0 0 20px rgb(0 255 157);
         }
-        .particle {
-            position: absolute;
-            background: #00ff9d;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgb(0 255 157 / 0.15);
         }
     </style>
 </head>
 <body class="bg-zinc-950 text-white overflow-x-hidden">
-    <!-- Navbar -->
+    <!-- Navbar (same as before) -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-x-3">
@@ -48,7 +49,7 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero (kept same) -->
     <section class="min-h-screen flex items-center relative">
         <div class="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-8">
@@ -69,39 +70,21 @@
                         My Profile
                     </a>
                 </div>
-                <div class="flex items-center gap-x-8 text-sm">
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-code text-emerald-400"></i>
-                        <span>Just created</span>
-                    </div>
-                    <div class="h-3 w-px bg-white/20"></div>
-                    <div>GitHub Pages • Instant deploy</div>
-                </div>
             </div>
-            
-            <!-- Visual -->
             <div class="relative hidden md:block">
                 <div class="absolute -inset-20 bg-[radial-gradient(at_center,#00ff9d20_0%,transparent_70%)]"></div>
                 <div id="hero-visual" class="relative bg-zinc-900 border border-white/10 rounded-3xl p-8 h-[520px] flex items-center justify-center overflow-hidden">
                     <div class="text-center z-10">
                         <div class="mx-auto w-40 h-40 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-3xl flex items-center justify-center text-8xl mb-8 rotate-12 shadow-2xl">🤖</div>
                         <p class="text-emerald-400 text-3xl font-semibold hero-font tracking-tighter">GROK WAS HERE</p>
-                        <p class="text-zinc-500 mt-4">Made in real-time</p>
                     </div>
-                    <!-- Particles container -->
                     <div id="particles" class="absolute inset-0 pointer-events-none"></div>
                 </div>
             </div>
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-12 left-1/2 flex flex-col items-center gap-y-2 text-xs tracking-widest">
-            <div class="animate-bounce">↓</div>
-            SCROLL FOR MAGIC
-        </div>
     </section>
 
-    <!-- About -->
+    <!-- About (kept same) -->
     <section id="about" class="py-24 bg-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-12 items-center">
@@ -109,16 +92,6 @@
                     <h2 class="text-5xl font-bold hero-font tracking-tighter">About me</h2>
                     <div class="mt-6 text-zinc-400 text-lg leading-relaxed">
                         New to GitHub, but already building with the best AI in the universe. This site was generated in one conversation with Grok. What will we build next?
-                    </div>
-                    <div class="mt-10 flex gap-4 flex-wrap">
-                        <div class="px-5 py-3 bg-white/5 rounded-3xl text-sm flex items-center gap-x-2">
-                            <i class="fa-solid fa-rocket"></i>
-                            <span>Fast learner</span>
-                        </div>
-                        <div class="px-5 py-3 bg-white/5 rounded-3xl text-sm flex items-center gap-x-2">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span>Idea machine</span>
-                        </div>
                     </div>
                 </div>
                 <div class="md:col-span-7">
@@ -131,126 +104,133 @@
         </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="py-24">
+    <!-- Projects - NEW & COOL -->
+    <section id="projects" class="py-24 bg-black">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-5xl font-bold hero-font tracking-tighter mb-12">Cool things I've built</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 group hover:border-emerald-400 transition-colors">
-                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-globe text-4xl"></i></div>
-                    <h3 class="text-2xl font-semibold">This Website</h3>
-                    <p class="text-zinc-400 mt-2">Live demo of Grok-powered development. Zero to deployed in minutes.</p>
-                    <a href="https://github.com/waseem-ctrl/waseem-ctrl.github.io" class="mt-8 inline-flex text-sm items-center gap-x-2 group-hover:text-emerald-400">View repo <span class="transition-transform group-hover:translate-x-1">→</span></a>
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold hero-font tracking-tighter">Featured Projects</h2>
+                <p class="text-zinc-400 mt-4">Building the future — one intelligent system at a time</p>
+            </div>
+
+            <!-- BlockCircle -->
+            <div class="grid lg:grid-cols-12 gap-12 items-center mb-32 project-card bg-zinc-900 border border-white/10 rounded-3xl p-10">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 bg-emerald-900/30 text-emerald-400 text-sm px-4 py-2 rounded-3xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>TRADING INTELLIGENCE</span>
+                    </div>
+                    <h3 class="text-4xl font-bold hero-font tracking-tighter mb-4">BlockCircle</h3>
+                    <p class="text-xl text-zinc-300 leading-relaxed mb-8">Next-gen alpha sourcing & intelligent trade routing platform. Aggregates whale flows, insider activity, momentum signals and more — then routes executions across 150+ venues with smart risk controls.</p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex gap-3"><i class="fa-solid fa-bolt text-emerald-400 mt-1"></i><div><strong>Real-time Alpha</strong><p class="text-sm text-zinc-400">Whale + Insider + Political signals</p></div></div>
+                            <div class="flex gap-3"><i class="fa-solid fa-route text-emerald-400 mt-1"></i><div><strong>Smart Routing Engine</strong><p class="text-sm text-zinc-400">Autopilot, fan-out, TWAP, DCA</p></div></div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex gap-3"><i class="fa-solid fa-shield-halved text-emerald-400 mt-1"></i><div><strong>Non-custodial</strong><p class="text-sm text-zinc-400">You keep your keys</p></div></div>
+                            <div class="flex gap-3"><i class="fa-solid fa-robot text-emerald-400 mt-1"></i><div><strong>Automated Execution</strong><p class="text-sm text-zinc-400">Live + paper trading</p></div></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 group hover:border-emerald-400 transition-colors">
-                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-robot text-4xl"></i></div>
-                    <h3 class="text-2xl font-semibold">Future AI Demos</h3>
-                    <p class="text-zinc-400 mt-2">Coming soon: more Grok integrations, tools, and experiments.</p>
-                    <div class="mt-8 text-xs uppercase tracking-widest bg-emerald-400/10 text-emerald-400 px-4 py-2 inline-block rounded-3xl">Next up</div>
+                <!-- Demo -->
+                <div class="lg:col-span-5 bg-black rounded-2xl p-6 border border-white/10">
+                    <h4 class="text-emerald-400 font-medium mb-4 flex items-center gap-2"><i class="fa-solid fa-waveform"></i> LIVE SIGNAL FEED</h4>
+                    <div id="signal-feed" class="h-72 font-mono text-sm overflow-hidden bg-zinc-950 rounded-xl p-4 border border-white/10 space-y-3 text-emerald-300"></div>
+                    <button onclick="triggerRoutingDemo()" class="mt-6 w-full py-4 bg-gradient-to-r from-emerald-400 to-cyan-400 text-black font-semibold rounded-2xl hover:scale-105 transition">Simulate Smart Routing</button>
                 </div>
-                <div class="bg-zinc-900 border border-white/10 rounded-3xl p-8 group hover:border-emerald-400 transition-colors">
-                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-star text-4xl"></i></div>
-                    <h3 class="text-2xl font-semibold">Your Idea Here</h3>
-                    <p class="text-zinc-400 mt-2">Tell me what you want next and we'll make it happen right here.</p>
+            </div>
+
+            <!-- FirmAdapt -->
+            <div class="grid lg:grid-cols-12 gap-12 items-center project-card bg-zinc-900 border border-white/10 rounded-3xl p-10">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 bg-violet-900/30 text-violet-400 text-sm px-4 py-2 rounded-3xl mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                        <span>AI TRANSFORMATION</span>
+                    </div>
+                    <h3 class="text-4xl font-bold hero-font tracking-tighter mb-4">FirmAdapt</h3>
+                    <p class="text-xl text-zinc-300 leading-relaxed mb-8">AI-powered business diagnostics platform. Runs instant operational audits, calculates AI Survival Scores, and delivers custom transformation roadmaps to eliminate waste and accelerate growth.</p>
+                    <ul class="space-y-4 text-zinc-300">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-1"></i>60-second AI company audit</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-1"></i>AI Survival Score + Roadmap</li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-1"></i>Swarm agents & RPA automation</li>
+                    </ul>
+                </div>
+                <!-- Demo -->
+                <div class="lg:col-span-5 bg-black rounded-2xl p-6 border border-white/10">
+                    <h4 class="text-violet-400 font-medium mb-4">Instant AI Audit Demo</h4>
+                    <input id="audit-input" type="text" placeholder="Enter company domain or name" class="w-full bg-zinc-900 border border-white/20 rounded-2xl px-6 py-4 focus:outline-none focus:border-violet-400 mb-4 text-white">
+                    <button onclick="runAuditDemo()" class="w-full py-4 bg-gradient-to-r from-violet-400 to-fuchsia-400 text-black font-semibold rounded-2xl hover:scale-105 transition">Run AI Audit Now</button>
+                    <div id="audit-result" class="mt-6 hidden">
+                        <!-- JS will fill this -->
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Fun stuff -->
-    <section id="fun" class="py-24 bg-zinc-900">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-5xl font-bold hero-font tracking-tighter mb-6">Try the magic</h2>
-            <p class="text-xl text-zinc-400 max-w-md mx-auto">Click to launch Grok confetti! (because why not?)</p>
-            <button onclick="launchConfetti()" class="mt-10 px-10 py-6 text-2xl font-semibold bg-gradient-to-r from-emerald-400 to-cyan-400 text-black rounded-3xl hover:scale-110 transition-transform flex items-center gap-x-4 mx-auto">
-                <span>✨ GROK CONFETTI ✨</span>
-            </button>
-            <div id="confetti-container" class="fixed inset-0 pointer-events-none z-[9999]"></div>
-        </div>
-    </section>
-
-    <footer class="bg-black py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
-            Made live with ❤️ + Grok (xAI) • <a href="https://github.com/waseem-ctrl/waseem-ctrl.github.io" class="underline">Source code</a>
-        </div>
-    </footer>
-
     <script>
         // Tailwind script already loaded
-        function initializeTailwind() {
-            // No need, CDN handles
-        }
-
-        // Particle animation in hero
         function createParticles() {
             const container = document.getElementById('particles');
             for (let i = 0; i < 60; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                const size = Math.random() * 6 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `-${Math.random() * 6}s`;
-                particle.style.opacity = Math.random() * 0.6 + 0.3;
+                particle.style.width = `${Math.random()*6 + 3}px`;
+                particle.style.height = particle.style.width;
+                particle.style.left = `${Math.random()*100}%`;
+                particle.style.top = `${Math.random()*100}%`;
+                particle.style.animationDelay = `-${Math.random()*6}s`;
+                particle.style.opacity = Math.random() * 0.7 + 0.3;
                 container.appendChild(particle);
-                
-                // Cleanup
-                setTimeout(() => {
-                    if (particle.parentNode) particle.parentNode.removeChild(particle);
-                }, 8000);
             }
         }
 
-        // Confetti function
-        function launchConfetti() {
-            const container = document.getElementById('confetti-container');
-            const colors = ['#00ff9d', '#00f0ff', '#ff00cc', '#ffff00'];
-            for (let i = 0; i < 250; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'absolute';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-10px';
-                confetti.style.width = Math.random() * 12 + 'px';
-                confetti.style.height = confetti.style.width;
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                confetti.style.opacity = Math.random();
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                container.appendChild(confetti);
+        // Fake signal feed for BlockCircle
+        const signals = [
+            "🐳 Whale bought 142 BTC on Binance",
+            "📄 Insider filing detected: AAPL",
+            "🏛️ Congress member trade alert",
+            "🚀 Momentum spike in SOL",
+            "📉 Reversal signal on ETH"
+        ];
 
-                const duration = Math.random() * 3000 + 2000;
-                const angle = Math.random() * 80 - 20;
-                confetti.animate([
-                    { transform: `translateY(0) rotate(0deg)` },
-                    { transform: `translateY(${window.innerHeight + 100}px) rotate(${angle * 8}deg)` }
-                ], {
-                    duration: duration,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                });
-
-                setTimeout(() => {
-                    if (confetti.parentNode) confetti.parentNode.removeChild(confetti);
-                }, duration);
-            }
+        function startSignalFeed() {
+            const feed = document.getElementById('signal-feed');
+            let index = 0;
+            setInterval(() => {
+                const div = document.createElement('div');
+                div.className = 'flex justify-between text-xs border-b border-white/10 pb-2';
+                div.innerHTML = `<span>${signals[index % signals.length]}</span><span class="text-emerald-400">just now</span>`;
+                feed.appendChild(div);
+                if (feed.children.length > 8) feed.removeChild(feed.children[0]);
+                index++;
+            }, 1200);
         }
 
-        // Initialize everything
+        function triggerRoutingDemo() {
+            alert('🚀 Smart routing activated! $87,420 split across 6 venues in 180ms (demo)');
+        }
+
+        // FirmAdapt audit demo
+        function runAuditDemo() {
+            const input = document.getElementById('audit-input').value || 'example.com';
+            const resultDiv = document.getElementById('audit-result');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `
+                <div class="bg-zinc-900 p-6 rounded-2xl">
+                    <div class="flex justify-between items-baseline"><span class="text-lg">AI Survival Score</span><span class="text-5xl font-bold text-violet-400">${Math.floor(65 + Math.random()*25)}</span></div>
+                    <p class="text-zinc-400 mt-2">for <strong>${input}</strong></p>
+                    <div class="h-2 bg-white/10 rounded-full mt-6 mb-2"><div class="h-2 bg-gradient-to-r from-violet-400 to-fuchsia-400 w-4/5 rounded-full"></div></div>
+                    <p class="text-emerald-400 text-sm">Strong opportunity for AI automation • 38% operational waste identified</p>
+                    <button onclick="this.parentElement.parentElement.classList.add('hidden')" class="text-xs mt-6 underline">Close report</button>
+                </div>`;
+        }
+
+        // Init everything
         window.onload = function() {
             createParticles();
-            console.log('%c✅ Welcome to waseem-ctrl.github.io – built live by Grok!', 'color:#00ff9d; font-family:monospace; font-size:12px');
-            
-            // Keyboard easter egg
-            let konami = '';
-            document.addEventListener('keydown', (e) => {
-                konami += e.key;
-                if (konami.length > 10) konami = konami.slice(-10);
-                if (konami.includes('grok')) {
-                    launchConfetti();
-                    konami = '';
-                }
-            });
+            startSignalFeed();
+            console.log('%c✅ BlockCircle & FirmAdapt demos loaded!', 'color:#00ff9d; font-family:monospace');
         };
     </script>
 </body>
