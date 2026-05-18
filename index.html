@@ -20,12 +20,16 @@
         .glow {
             text-shadow: 0 0 20px rgb(0 255 157);
         }
-        .project-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .modal {
+            animation: modalPop 0.3s ease;
         }
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px -12px rgb(0 255 157 / 0.15);
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .terminal {
+            font-family: monospace;
+            background: #000;
         }
     </style>
 </head>
@@ -64,61 +68,188 @@
 
     <section id="projects" class="py-24 bg-black">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-5xl font-bold hero-font text-center mb-12">Featured Projects</h2>
+            <h2 class="text-5xl font-bold hero-font text-center mb-16">Featured Projects</h2>
 
             <!-- Financial Intel -->
-            <div class="mb-20 grid lg:grid-cols-12 gap-12 items-center bg-zinc-900 rounded-3xl p-10">
+            <div onclick="launchFinancialIntel()" class="mb-20 grid lg:grid-cols-12 gap-12 items-center bg-zinc-900 rounded-3xl p-10 cursor-pointer project-card">
                 <div class="lg:col-span-7">
                     <div class="inline bg-emerald-900/30 text-emerald-400 px-4 py-1 rounded-3xl text-sm mb-6 inline-flex items-center gap-2"><i class="fa-solid fa-chart-line"></i>FINANCIAL INTEL</div>
                     <h3 class="text-4xl font-bold hero-font">Financial Intel</h3>
                     <p class="text-zinc-300 mt-6">Next-gen financial intelligence platform delivering real-time alpha, whale flow tracking, sentiment analysis, and intelligent trade execution.</p>
+                    <button onclick="event.stopImmediatePropagation(); launchFinancialIntel();" class="mt-8 px-8 py-4 bg-emerald-400 text-black font-semibold rounded-3xl flex items-center gap-3 hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-rocket"></i>
+                        Launch Full Alpha Terminal
+                    </button>
                 </div>
                 <div class="lg:col-span-5">
-                    <div class="bg-black p-6 rounded-2xl">
-                        <h4 class="text-emerald-400">LIVE SIGNAL FEED</h4>
-                        <div id="signal-feed" class="h-64 overflow-auto text-sm"></div>
+                    <div class="bg-black p-6 rounded-2xl text-sm border border-emerald-400/30">
+                        LIVE SIGNAL FEED (preview)
+                        <div id="signal-preview" class="h-48 overflow-hidden mt-3 text-emerald-300 font-mono text-xs"></div>
                     </div>
                 </div>
             </div>
 
             <!-- AI Business Transformation -->
-            <div class="grid lg:grid-cols-12 gap-12 items-center bg-zinc-900 rounded-3xl p-10">
+            <div onclick="launchAIBusiness()" class="grid lg:grid-cols-12 gap-12 items-center bg-zinc-900 rounded-3xl p-10 cursor-pointer project-card">
                 <div class="lg:col-span-7">
                     <div class="inline bg-violet-900/30 text-violet-400 px-4 py-1 rounded-3xl text-sm mb-6 inline-flex items-center gap-2"><i class="fa-solid fa-brain"></i>AI TRANSFORMATION</div>
                     <h3 class="text-4xl font-bold hero-font">AI Business Transformation</h3>
                     <p class="text-zinc-300 mt-6">Powerful AI engine for instant business audits, survival scoring, operational diagnostics, and tailored transformation roadmaps.</p>
+                    <button onclick="event.stopImmediatePropagation(); launchAIBusiness();" class="mt-8 px-8 py-4 bg-violet-500 text-black font-semibold rounded-3xl flex items-center gap-3 hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-magic"></i>
+                        Launch Full AI Auditor
+                    </button>
                 </div>
                 <div class="lg:col-span-5">
                     <div class="bg-black p-6 rounded-2xl">
-                        <h4 class="text-violet-400">AI Audit Demo</h4>
-                        <input id="audit-input" placeholder="Company name" class="w-full p-4 bg-zinc-800 rounded-2xl">
-                        <button onclick="runAuditDemo()" class="mt-4 w-full py-4 bg-violet-500 text-black rounded-2xl">Run Audit</button>
-                        <div id="audit-result" class="mt-6"></div>
+                        <h4 class="text-violet-400 mb-3">AI Audit Preview</h4>
+                        <div class="text-sm text-zinc-400">Click to experience full-screen analysis</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Financial Intel Full Screen Modal -->
+    <div id="financial-modal" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center">
+        <div class="modal w-full max-w-7xl mx-4 bg-zinc-950 border border-emerald-400/30 rounded-3xl overflow-hidden">
+            <div class="p-6 border-b border-white/10 flex justify-between items-center">
+                <div>
+                    <span class="text-emerald-400 font-mono">FINANCIAL INTEL</span>
+                    <h2 class="text-3xl font-bold hero-font">Alpha Terminal</h2>
+                </div>
+                <button onclick="closeFinancialModal()" class="text-white/60 hover:text-white text-3xl leading-none">×</button>
+            </div>
+            <div class="terminal p-8 text-emerald-300 font-mono text-sm h-[70vh] flex flex-col">
+                <div class="flex justify-between mb-6">
+                    <div>REAL-TIME ALPHA FEED</div>
+                    <div class="text-emerald-400 animate-pulse">LIVE • CONNECTED</div>
+                </div>
+                <div id="full-signal-feed" class="flex-1 overflow-auto space-y-2 pr-4"></div>
+                <div class="mt-8 bg-black/50 p-4 rounded-2xl">
+                    <div class="flex gap-4">
+                        <button onclick="simulateTrade()" class="flex-1 py-4 bg-emerald-400 hover:bg-emerald-300 text-black font-semibold rounded-2xl">EXECUTE TRADE</button>
+                        <button onclick="simulateTrade()" class="flex-1 py-4 bg-white/10 hover:bg-white/20 font-semibold rounded-2xl">SET AUTOPILOT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Business Transformation Full Screen Modal -->
+    <div id="ai-modal" class="hidden fixed inset-0 bg-black/95 z-[100] flex items-center justify-center">
+        <div class="modal w-full max-w-5xl mx-4 bg-zinc-950 border border-violet-400/30 rounded-3xl overflow-hidden">
+            <div class="p-6 border-b border-white/10 flex justify-between items-center">
+                <div>
+                    <span class="text-violet-400 font-mono">AI TRANSFORMATION</span>
+                    <h2 class="text-3xl font-bold hero-font">AI Business Auditor</h2>
+                </div>
+                <button onclick="closeAIModal()" class="text-white/60 hover:text-white text-3xl leading-none">×</button>
+            </div>
+            <div class="p-8">
+                <div class="max-w-md mx-auto mb-8">
+                    <input id="company-input" type="text" placeholder="Enter company name..." class="w-full bg-zinc-900 border border-white/10 focus:border-violet-400 rounded-3xl px-8 py-6 text-xl outline-none">
+                    <button onclick="runFullAudit()" class="mt-4 w-full py-6 bg-violet-500 hover:bg-violet-400 text-black text-xl font-semibold rounded-3xl transition-colors">RUN INSTANT AI AUDIT</button>
+                </div>
+                <div id="full-audit-result" class="min-h-[400px]"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Simple signal feed
-        function startSignalFeed() {
-            const feed = document.getElementById('signal-feed');
-            const signals = ['Whale buy detected', 'Momentum signal: NVDA', 'Insider alert', 'Sentiment spike'];
+        // Preview signal feed
+        function startPreviewFeed() {
+            const preview = document.getElementById('signal-preview');
+            const signals = ['WHALE +1.2M $BTC', 'MOMENTUM NVDA', 'SENTIMENT SPIKE TSLA', 'INSIDER BUY'];
             let i = 0;
             setInterval(() => {
-                feed.innerHTML += `<div class="py-1 border-b border-white/10">${signals[i%signals.length]} <span class="text-emerald-400 text-xs">now</span></div>`;
-                if (feed.children.length > 6) feed.removeChild(feed.children[0]);
+                preview.innerHTML += `<div class="py-2 border-b border-white/10 last:border-0 flex justify-between"><span>${signals[i % signals.length]}</span><span class="text-emerald-400 text-xs">just now</span></div>`;
+                if (preview.children.length > 5) preview.removeChild(preview.children[0]);
                 i++;
-            }, 1500);
+            }, 1200);
         }
 
-        function runAuditDemo() {
-            const input = document.getElementById('audit-input').value || 'Your Company';
-            document.getElementById('audit-result').innerHTML = `<div class="bg-zinc-800 p-5 rounded-2xl text-center">AI Survival Score: <span class="text-6xl font-bold text-violet-400">${85 + Math.floor(Math.random()*10)}</span><br><small class="text-emerald-400">for ${input} • Transformation roadmap ready</small></div>`;
+        // Full Financial Intel Modal
+        let signalInterval = null;
+        function launchFinancialIntel() {
+            document.getElementById('financial-modal').classList.remove('hidden');
+            document.getElementById('financial-modal').classList.add('flex');
+            const feed = document.getElementById('full-signal-feed');
+            feed.innerHTML = '';
+
+            const signals = [
+                '🟢 Whale buy detected: 2.4M $ETH @ $3,412',
+                '📈 Momentum breakout: NVDA +4.8% in 11m',
+                '🔥 Sentiment spike on TSLA options',
+                '📊 Smart money accumulation: AAPL',
+                '⚡ High-conviction alpha signal triggered'
+            ];
+
+            let i = 0;
+            signalInterval = setInterval(() => {
+                feed.innerHTML += `<div class="py-3 border-b border-emerald-400/20">${signals[i % signals.length]} <span class="float-right text-emerald-400 text-xs">NOW</span></div>`;
+                feed.scrollTop = feed.scrollHeight;
+                i++;
+            }, 900);
         }
 
-        window.onload = startSignalFeed;
+        function closeFinancialModal() {
+            const modal = document.getElementById('financial-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            if (signalInterval) clearInterval(signalInterval);
+        }
+
+        function simulateTrade() {
+            alert('🚀 Trade executed in simulation! (Alpha Terminal in action)');
+        }
+
+        // Full AI Business Modal
+        function launchAIBusiness() {
+            document.getElementById('ai-modal').classList.remove('hidden');
+            document.getElementById('ai-modal').classList.add('flex');
+            document.getElementById('full-audit-result').innerHTML = '';
+        }
+
+        function closeAIModal() {
+            const modal = document.getElementById('ai-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function runFullAudit() {
+            const input = document.getElementById('company-input').value.trim() || 'Acme Corp';
+            const resultDiv = document.getElementById('full-audit-result');
+            
+            resultDiv.innerHTML = `
+                <div class="bg-zinc-900 rounded-3xl p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold">AI Audit for <span class="text-violet-400">${input}</span></h3>
+                        <div class="text-7xl font-bold text-violet-400 mt-4">92</div>
+                        <p class="text-emerald-400">Survival Score • Excellent</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <div class="bg-black/60 rounded-2xl p-6"><div class="text-emerald-400 text-xl">87%</div><div class="text-sm text-zinc-400 mt-1">Efficiency</div></div>
+                        <div class="bg-black/60 rounded-2xl p-6"><div class="text-amber-400 text-xl">$2.4M</div><div class="text-sm text-zinc-400 mt-1">Est. Annual Waste</div></div>
+                        <div class="bg-black/60 rounded-2xl p-6"><div class="text-violet-400 text-xl">14</div><div class="text-sm text-zinc-400 mt-1">AI Agents Deployed</div></div>
+                    </div>
+                    <div class="mt-10">
+                        <h4 class="font-semibold mb-4">Transformation Recommendations</h4>
+                        <ul class="space-y-4 text-sm">
+                            <li class="flex gap-3"><span class="text-emerald-400">→</span> Automate invoice processing (save 180 hrs/mo)</li>
+                            <li class="flex gap-3"><span class="text-emerald-400">→</span> Deploy predictive inventory AI</li>
+                            <li class="flex gap-3"><span class="text-emerald-400">→</span> Implement real-time KPI dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize
+        window.onload = () => {
+            startPreviewFeed();
+            // Confetti remains available if you want to keep it
+        };
     </script>
 </body>
 </html>
