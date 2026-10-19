@@ -17,6 +17,7 @@ Rule for every entry: written permission, named assets, a report. No install ste
 | pentagi.md | PentAGI (entry 209). Open-source multi-agent autonomous penetration testing platform. Client-owned systems or named lab only. |
 | darknet-mcp.md | Darknet MCP Server (entry 210). AI-assisted aggregator for dark-web and threat-intel sources via MCP. Client domains/brands only; Tor tools high-risk and out of preferred scope. Isolated runtime required. |
 | awesome-osint-arsenal.md | Awesome OSINT Arsenal (entry 211). Curated catalog and multi-distro installer for 753+ OSINT, red-team, blue-team, and forensics tools. Directory and convenience installer only; each tool still needs its own written scope. Selective scripts preferred. Client-owned systems or named lab. |
+| airgorah.md | Airgorah (entry 212). Rust/GTK4 WiFi security auditing GUI for Linux. Complements Aircrack-ng for authorized wireless assessments. Client-owned networks or named lab only. |
 
 GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 
@@ -24,6 +25,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 - cybersecurity/tools-50-bleach.md
 - cybersecurity/INDEX.md
 - cybersecurity/awesome-osint-arsenal.md
+- cybersecurity/airgorah.md
 
 ## Task-order sources
 
@@ -40,7 +42,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 | Scanning | 31-38 |
 | Web and mobile | 39-50 |
 | Network detection | 51-60 |
-| Wireless, lab unless SSIDs are named | 61-65 |
+| Wireless, lab unless SSIDs are named | 61-65, 212 |
 | Active Directory | 66-71 |
 | Cloud, containers, DevSecOps | 72-82, 108-110 |
 | Credentials, reversing, malware lab | 83-92, 119-120 |
@@ -89,6 +91,7 @@ OSINTRack. OSINT Tools Library. Bellingcat Toolkit. OSINT Library. OSINT Framewo
 - https://x.com/simplifyinAI/status/2109475720015851688 (PentAGI)
 - LinkedIn post by Kenny Felix (https://lnkd.in/p/dFkzqhGN) on Darknet MCP Server (entry 210)
 - https://x.com/bkdgiffug/status/2111704329111450007 (Awesome OSINT Arsenal, entry 211)
+- https://x.com/bkdgiffug/status/2111563148746719396 (Airgorah, entry 212)
 
 ## Excluded from the index
 
