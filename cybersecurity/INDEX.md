@@ -1,6 +1,6 @@
 # Cybersecurity project index
 
-Master index for this project. Updated 19 Oct 2026. Use this file first.
+Master index for this project. Updated 26 Oct 2026. Use this file first.
 
 Rule for every entry: written permission, named assets, a report. No install steps and no attack procedures in this project. Practice ranges are not client targets.
 
@@ -18,6 +18,7 @@ Rule for every entry: written permission, named assets, a report. No install ste
 | darknet-mcp.md | Darknet MCP Server (entry 210). AI-assisted aggregator for dark-web and threat-intel sources via MCP. Client domains/brands only; Tor tools high-risk and out of preferred scope. Isolated runtime required. |
 | awesome-osint-arsenal.md | Awesome OSINT Arsenal (entry 211). Curated catalog and multi-distro installer for 753+ OSINT, red-team, blue-team, and forensics tools. Directory and convenience installer only; each tool still needs its own written scope. Selective scripts preferred. Client-owned systems or named lab. |
 | airgorah.md | Airgorah (entry 212). Rust/GTK4 WiFi security auditing GUI for Linux. Complements Aircrack-ng for authorized wireless assessments. Client-owned networks or named lab only. |
+| basilisk.md | Basilisk (entry 214). Open-source AI red teaming framework with genetic prompt evolution. OWASP LLM Top 10 modules, differential testing, posture grading, signed audit logs. Client-owned LLM/agent systems or named lab only. |
 
 GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 
@@ -26,6 +27,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 - cybersecurity/INDEX.md
 - cybersecurity/awesome-osint-arsenal.md
 - cybersecurity/airgorah.md
+- cybersecurity/basilisk.md
 
 ## Task-order sources
 
@@ -44,7 +46,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 | Network detection | 51-60 |
 | Wireless, lab unless SSIDs are named | 61-65, 212 |
 | Active Directory | 66-71 |
-| Cloud, containers, DevSecOps | 72-82, 108-110 |
+| Cloud, containers, DevSecOps | 72-82, 108-110, 209 |
 | Credentials, reversing, malware lab | 83-92, 119-120 |
 | SOC, intel, forensics, reporting | 93-100, 141-147 |
 | SMB assess and track | 101-107 |
@@ -92,6 +94,7 @@ OSINTRack. OSINT Tools Library. Bellingcat Toolkit. OSINT Library. OSINT Framewo
 - LinkedIn post by Kenny Felix (https://lnkd.in/p/dFkzqhGN) on Darknet MCP Server (entry 210)
 - https://x.com/bkdgiffug/status/2111704329111450007 (Awesome OSINT Arsenal, entry 211)
 - https://x.com/bkdgiffug/status/2111563148746719396 (Airgorah, entry 212)
+- https://x.com/MAXdeg0/status/2114247743531012339 (Basilisk, entry 214)
 
 ## Excluded from the index
 
