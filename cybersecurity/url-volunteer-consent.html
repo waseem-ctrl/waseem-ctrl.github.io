@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volunteer URL — Ownership Consent</title>
+<style>
+  :root { --bg:#0f1419; --panel:#1a2332; --line:#2c3a4f; --text:#e7eef7; --muted:#93a4b8; --accent:#3ddc97; --warn:#e2b340; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.5 "Segoe UI", system-ui, sans-serif; background:var(--bg); color:var(--text); display:flex; justify-content:center; align-items:center; min-height:100vh; padding:24px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:28px; max-width:480px; width:100%; }
+  h1 { font-size:22px; margin:0 0 8px; }
+  p { margin:0 0 16px; color:var(--muted); font-size:14px; }
+  label { display:block; font-size:13px; color:var(--muted); margin:14px 0 6px; }
+  input[type="url"], input[type="text"] { width:100%; background:#0f1419; color:var(--text); border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:15px; }
+  .consent { display:flex; gap:10px; align-items:flex-start; margin:18px 0; font-size:14px; }
+  .consent input { width:auto; margin-top:3px; }
+  button { background:var(--accent); color:#062116; border:0; border-radius:8px; padding:10px 16px; font-weight:650; cursor:pointer; width:100%; font-size:15px; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  #result { margin-top:18px; padding:14px; background:#0f1419; border-radius:8px; font:13px/1.45 ui-monospace, monospace; white-space:pre-wrap; display:none; }
+  .ok { color:var(--accent); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Volunteer a URL</h1>
+    <p>Enter a URL you own. Confirm ownership below. This creates an authorized test request. No scan runs from this page.</p>
+
+    <label for="url">URL to test</label>
+    <input id="url" type="url" placeholder="https://example.com" required>
+
+    <label for="name">Your name or engagement reference (optional)</label>
+    <input id="name" type="text" placeholder="Name or ticket id">
+
+    <div class="consent">
+      <input id="owner" type="checkbox">
+      <label for="owner" style="margin:0;color:var(--text)">I am the owner of this URL (or I have written permission to test it). I consent to an authorized security check on this asset only.</label>
+    </div>
+
+    <button id="go" disabled>Confirm and prepare test</button>
+    <div id="result"></div>
+  </div>
+
+<script>
+const url = document.getElementById("url");
+const name = document.getElementById("name");
+const owner = document.getElementById("owner");
+const go = document.getElementById("go");
+const result = document.getElementById("result");
+
+function ready() {
+  const ok = url.value.trim().startsWith("http") && owner.checked;
+  go.disabled = !ok;
+}
+url.addEventListener("input", ready);
+owner.addEventListener("change", ready);
+
+go.onclick = () => {
+  if (!ready && !owner.checked) return;
+  const pack = {
+    volunteered_url: url.value.trim(),
+    owner_confirmed: true,
+    consent: "I am the owner of this URL (or I have written permission to test it). I consent to an authorized security check on this asset only.",
+    reference: name.value.trim() || null,
+    timestamp: new Date().toISOString(),
+    status: "consent recorded — test request prepared. Execution stays off until reviewed on authorized infrastructure.",
+    note: "This page only collects the volunteer URL and ownership consent. It does not scan."
+  };
+  result.style.display = "block";
+  result.className = "ok";
+  result.textContent = JSON.stringify(pack, null, 2);
+  go.textContent = "Request prepared";
+  go.disabled = true;
+};
+</script>
+</body>
+</html>
