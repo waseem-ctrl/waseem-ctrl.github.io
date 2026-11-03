@@ -22,8 +22,9 @@ Rule for every entry: written permission, named assets, a report. No install ste
 | basilisk.md | Basilisk (entry 214). Open-source AI red teaming framework with genetic prompt evolution. OWASP LLM Top 10 modules, differential testing, posture grading, signed audit logs. Client-owned LLM/agent systems or named lab only. |
 | url-volunteer-consent.html | Simple volunteer form. User enters a URL, checks an ownership/consent box, and generates a minimal authorized test request. Collects scope only; does not execute tools. |
 | awesome-osint-mcp.md | Awesome OSINT MCP Servers (entry 215). Curated directory of 70+ MCP servers for OSINT across 11 categories (SOCMINT, network, web scraping, company intel, threat intel, etc.). Directory only; each server needs its own written scope. Client-owned assets or named lab. Complements Darknet MCP and AI-assisted OSINT. |
-| ares.md | ARES (entry 216). Open-source authorized red-team engagement automation platform. Goal-directed attack paths, 66 modules (MITRE ATT&CK), BloodHound integration, dual-layer scope firewall, multi-format reporting. Client-owned AD/Windows/Linux/cloud or named lab only. |
+| ares.md | ARES (entry 216). Open-source authorized red-team engagement platform. Goal-directed attack paths, 66 modules (MITRE ATT&CK), BloodHound integration, dual-layer scope firewall, multi-format reporting. Client-owned AD/Windows/Linux/cloud or named lab only. |
 | openplanter.md | OpenPlanter (entry 217). Open-source recursive AI investigation agent with desktop GUI and terminal. Ingests heterogeneous datasets, resolves entities, surfaces evidence-backed connections via knowledge graph and recursive sub-agents. Public records or client-owned datasets or named lab only. |
+| rea.md | REA (entry 218). Open-source MCP server and CLI orchestrator for reverse engineering. Connects AI agents to Ghidra, IDA, Hopper and other engines for evidence-backed analysis of binaries, apps, firmware, and more. Client-owned systems or named lab only. |
 
 GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 
@@ -34,6 +35,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 - cybersecurity/basilisk.md
 - cybersecurity/ares.md
 - cybersecurity/openplanter.md
+- cybersecurity/rea.md
 
 ## Task-order sources
 
@@ -53,7 +55,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 | Wireless, lab unless SSIDs are named | 61-65, 212 |
 | Active Directory | 66-71, 216 |
 | Cloud, containers, DevSecOps | 72-82, 108-110, 209, 213, 216 |
-| Credentials, reversing, malware lab | 83-92, 119-120 |
+| Credentials, reversing, malware lab | 83-92, 119-120, 218 |
 | SOC, intel, forensics, reporting | 93-100, 141-147 |
 | SMB assess and track | 101-107 |
 | Endpoint and identity operations | 111-118 |
@@ -105,6 +107,7 @@ OSINTRack. OSINT Tools Library. Bellingcat Toolkit. OSINT Library. OSINT Framewo
 - https://x.com/Sox0j/status/2114662320089767955 (Awesome OSINT MCP Servers, entry 215)
 - https://x.com/MAXdeg0/status/2117230634993078372 (ARES, entry 216)
 - https://x.com/three_cube/status/2116927473703379133 (OpenPlanter, entry 217)
+- https://x.com/hoodiefade_/status/2117258560270655816 (REA stack, entry 218)
 
 ## Excluded from the index
 
