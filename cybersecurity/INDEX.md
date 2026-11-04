@@ -22,9 +22,10 @@ Rule for every entry: written permission, named assets, a report. No install ste
 | basilisk.md | Basilisk (entry 214). Open-source AI red teaming framework with genetic prompt evolution. OWASP LLM Top 10 modules, differential testing, posture grading, signed audit logs. Client-owned LLM/agent systems or named lab only. |
 | url-volunteer-consent.html | Simple volunteer form. User enters a URL, checks an ownership/consent box, and generates a minimal authorized test request. Collects scope only; does not execute tools. |
 | awesome-osint-mcp.md | Awesome OSINT MCP Servers (entry 215). Curated directory of 70+ MCP servers for OSINT across 11 categories (SOCMINT, network, web scraping, company intel, threat intel, etc.). Directory only; each server needs its own written scope. Client-owned assets or named lab. Complements Darknet MCP and AI-assisted OSINT. |
-| ares.md | ARES (entry 216). Open-source authorized red-team engagement platform. Goal-directed attack paths, 66 modules (MITRE ATT&CK), BloodHound integration, dual-layer scope firewall, multi-format reporting. Client-owned AD/Windows/Linux/cloud or named lab only. |
+| ares.md | ARES (entry 216). Open-source authorized red-team engagement automation platform. Goal-directed attack paths, 66 modules (MITRE ATT&CK), BloodHound integration, dual-layer scope firewall, multi-format reporting. Client-owned AD/Windows/Linux/cloud or named lab only. |
 | openplanter.md | OpenPlanter (entry 217). Open-source recursive AI investigation agent with desktop GUI and terminal. Ingests heterogeneous datasets, resolves entities, surfaces evidence-backed connections via knowledge graph and recursive sub-agents. Public records or client-owned datasets or named lab only. |
 | rea.md | REA (entry 218). Open-source MCP server and CLI orchestrator for reverse engineering. Connects AI agents to Ghidra, IDA, Hopper and other engines for evidence-backed analysis of binaries, apps, firmware, and more. Client-owned systems or named lab only. |
+| sapper.md | SAPPER / sapper-v2 (entry 219). Open-source multi-agent autonomous pentest orchestration harness (AI commander + worker swarm + fact-intent graph). Runs real tools. High risk of misuse — authorized lab/CTF or named client scope only. See warning in note. |
 
 GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 
@@ -36,6 +37,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 - cybersecurity/ares.md
 - cybersecurity/openplanter.md
 - cybersecurity/rea.md
+- cybersecurity/sapper.md
 
 ## Task-order sources
 
@@ -49,7 +51,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 | --- | --- |
 | External attack surface | 1-20 |
 | Identity and exposure, lawful basis required | 21-30, 217 |
-| Scanning | 31-38 |
+| Scanning | 31-38, 219 |
 | Web and mobile | 39-50, 213 |
 | Network detection | 51-60 |
 | Wireless, lab unless SSIDs are named | 61-65, 212 |
@@ -108,6 +110,7 @@ OSINTRack. OSINT Tools Library. Bellingcat Toolkit. OSINT Library. OSINT Framewo
 - https://x.com/MAXdeg0/status/2117230634993078372 (ARES, entry 216)
 - https://x.com/three_cube/status/2116927473703379133 (OpenPlanter, entry 217)
 - https://x.com/hoodiefade_/status/2117258560270655816 (REA stack, entry 218)
+- https://x.com/MAXdeg0/status/2117947185492807817 (SAPPER / sapper-v2, entry 219)
 
 ## Excluded from the index
 
