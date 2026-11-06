@@ -1,6 +1,6 @@
 # Cybersecurity project index
 
-Master index for this project. Updated 3 Nov 2026. Use this file first.
+Master index for this project. Updated 6 Nov 2026. Use this file first.
 
 Rule for every entry: written permission, named assets, a report. No install steps and no attack procedures in this project. Practice ranges are not client targets.
 
@@ -26,6 +26,7 @@ Rule for every entry: written permission, named assets, a report. No install ste
 | openplanter.md | OpenPlanter (entry 217). Open-source recursive AI investigation agent with desktop GUI and terminal. Ingests heterogeneous datasets, resolves entities, surfaces evidence-backed connections via knowledge graph and recursive sub-agents. Public records or client-owned datasets or named lab only. |
 | rea.md | REA (entry 218). Open-source MCP server and CLI orchestrator for reverse engineering. Connects AI agents to Ghidra, IDA, Hopper and other engines for evidence-backed analysis of binaries, apps, firmware, and more. Client-owned systems or named lab only. |
 | sapper.md | SAPPER / sapper-v2 (entry 219). Open-source multi-agent autonomous pentest orchestration harness (AI commander + worker swarm + fact-intent graph). Runs real tools. High risk of misuse — authorized lab/CTF or named client scope only. See warning in note. |
+| t3mp3st.md | T3MP3ST (entry 220). Open-source autonomous red-teaming platform / multi-agent offensive-security meta-harness by elder-plinius. Turns existing AI coding agents into a security testing system with War Room UI. Client-owned systems or named lab only. High risk of misuse. |
 
 GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 
@@ -38,6 +39,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 - cybersecurity/openplanter.md
 - cybersecurity/rea.md
 - cybersecurity/sapper.md
+- cybersecurity/t3mp3st.md
 
 ## Task-order sources
 
@@ -51,7 +53,7 @@ GitHub copies, repo waseem-ctrl/waseem-ctrl.github.io:
 | --- | --- |
 | External attack surface | 1-20 |
 | Identity and exposure, lawful basis required | 21-30, 217 |
-| Scanning | 31-38, 219 |
+| Scanning | 31-38, 219, 220 |
 | Web and mobile | 39-50, 213 |
 | Network detection | 51-60 |
 | Wireless, lab unless SSIDs are named | 61-65, 212 |
@@ -111,6 +113,7 @@ OSINTRack. OSINT Tools Library. Bellingcat Toolkit. OSINT Library. OSINT Framewo
 - https://x.com/three_cube/status/2116927473703379133 (OpenPlanter, entry 217)
 - https://x.com/hoodiefade_/status/2117258560270655816 (REA stack, entry 218)
 - https://x.com/MAXdeg0/status/2117947185492807817 (SAPPER / sapper-v2, entry 219)
+- https://x.com/MAXdeg0/status/2118306509041910096 (T3MP3ST, entry 220)
 
 ## Excluded from the index
 
